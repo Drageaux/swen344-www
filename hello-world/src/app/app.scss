@@ -22,3 +22,34 @@ body {
 a {
   color: #00B7FF;
 }
+
+/*
+ * Navbar
+ */
+ion-navbar {
+  .toolbar-background {
+    background: color($colors, primary);
+  }
+
+  .toolbar-title {
+    color: white;
+  }
+}
+
+.tabbar {
+
+  /*background: color($colors, dark) !important;
+  .tab-button {
+    .tab-button-icon, .tab-button-text {
+      color: white;
+    }
+  }*/
+
+  .tab-button:hover,
+  .tab-button:focus,
+  .tab-button[aria-selected=true] {
+    .tab-button-icon, .tab-button-icon + .tab-button-text {
+      color: color($colors, primary);
+    }
+  }
+}
