@@ -12,8 +12,10 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(cookieParser());
 
-
+// serve public files
 app.use('/', express.static(path.join(__dirname, 'dist')));
+
+// serve API routes
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
@@ -28,9 +30,13 @@ app.use(function (err, req, res, next) {
     res.locals.message = err.message;
     res.locals.error = req.app.get('env') === 'development' ? err : {};
 
+    if(err.status !== 404) {
+        return next();
+    }
+
     // render the error page
     res.status(err.status || 500);
-    res.render('error');
+    res.send('Oops! Something broke...');
 });
 
 module.exports = app;
