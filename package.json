@@ -1,10 +1,13 @@
 {
-  "name": "web-eng-hello-world",
+  "name": "web-eng-www",
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www"
+    "start": "node ./bin/www",
+    "build": "cd hello-world && ionic-app-scripts build --prod --wwwDir ./../dist",
+    "postinstall": "cd hello-world && npm install && npm run build"
   },
+
   "dependencies": {
     "body-parser": "~1.18.2",
     "cookie-parser": "~1.4.3",
